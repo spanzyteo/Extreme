@@ -11,28 +11,7 @@ const montserrat = Montserrat({
 })
 
 const Navbar = () => {
-  const [scrolled, setScrolled] = useState(false)
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.scrollY
-      const screenWidth = window.innerWidth
-
-      // Apply scroll effect only if the screen is not a small screen (e.g., above 768px)
-      // if (screenWidth >= 768) {
-      //   setScrolled(scrollTop > 0)
-      // } else {
-      //   setScrolled(false)
-      // }
-    }
-
-    window.addEventListener('scroll', handleScroll)
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll)
-    }
-  }, [])
-
+  
   return (
     <>
       <div className="h-[70px] flex items-center justify-between px-10 shadow-md">
