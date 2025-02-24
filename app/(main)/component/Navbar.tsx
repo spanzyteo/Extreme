@@ -14,7 +14,7 @@ const Navbar = () => {
   
   return (
     <>
-      <div className="h-[70px] flex items-center justify-between px-10 shadow-md">
+      <div className="h-[70px] flex items-center justify-between px-10 lg:px-20 shadow-md">
         <div
           className={`${montserrat.className} text-white font-semibold text-xl`}
         >

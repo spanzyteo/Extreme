@@ -35,8 +35,14 @@ const DiscoverSection = () => {
           </button>
         </div>
       </div>
-      <div className=''>
-        <Image src={'/discover.svg'} alt='discover' height={250} width={500} className='h-[250px] lg:w-[500px] w-[100%] mt-8 lg:mt-0'/>
+      <div className="w-full md:w-auto mt-8 md:mt-0">
+        <Image
+          src={'/discover.svg'}
+          alt="discover"
+          height={250}
+          width={500}
+          className="h-[220px] lg:w-[500px] w-full object-cover"
+        />
       </div>
     </div>
   )
