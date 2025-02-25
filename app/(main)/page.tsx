@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Navbar from './component/Navbar'
 import DiscoverSection from './component/DiscoverSection'
 import FlightSection from './component/FlightSection'
+import MessageSection from './component/MessageSection'
 
 export default function Home() {
   return (
@@ -9,6 +10,7 @@ export default function Home() {
       <Navbar />
       <DiscoverSection />
       <FlightSection />
+      <MessageSection />
     </div>
   )
 }
