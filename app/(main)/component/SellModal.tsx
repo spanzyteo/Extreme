@@ -3,18 +3,18 @@ import { useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
 import { useAppDispatch, useAppSelector } from '../store/hooks'
-import { closeBuyModal } from '../store/modalSlice'
+import { closeSellModal } from '../store/modalSlice'
 
-const BuyModal = () => {
+const SellModal = () => {
   const modal = useAppSelector((state) => state.modal)
   const dispatch = useAppDispatch()
 
-  const handleCloseBuyModal = () => {
-    dispatch(closeBuyModal())
+  const handleCloseSellModal = () => {
+    dispatch(closeSellModal())
   }
 
   useEffect(() => {
-    if (modal.buyModal) {
+    if (modal.sellModal) {
       document.body.style.overflow = 'hidden'
     } else {
       document.body.style.overflow = 'auto'
@@ -23,11 +23,10 @@ const BuyModal = () => {
     return () => {
       document.body.style.overflow = 'auto'
     }
-  }, [modal.buyModal])
-
+  }, [modal.sellModal])
   return (
     <AnimatePresence>
-      {modal.buyModal && (
+      {modal.sellModal && (
         <motion.div
           className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-20"
           initial={{ opacity: 0 }}
@@ -49,7 +48,7 @@ const BuyModal = () => {
                 width={25}
                 height={25}
                 className="w-[25px] h-[25px] cursor-pointer"
-                onClick={() => handleCloseBuyModal()}
+                onClick={() => handleCloseSellModal()}
               />
             </div>
             <div className="flex flex-col lg:px-8 mt-4">
@@ -106,7 +105,7 @@ const BuyModal = () => {
                 placeholder="amount"
                 className="w-full focus:outline-none border border-[#FFD700] px-4 py-2 mt-2 placeholder:text-black font-medium"
               />
-              <button className="bg-[#FFD700] text-black rounded-[16px] font-semibold text-[13px] w-[120px] h-[35px] hover:bg-black hover:text-[#FFD700] transition-all duration-300 ease-in-out mt-8 mx-auto">
+              <button className="bg-[#2E4053] text-[#FFD700] rounded-[16px] font-semibold text-[13px] w-[120px] h-[35px] hover:opacity-80 transition-all duration-300 ease-in-out mt-8 mx-auto">
                 Send Proof
               </button>
             </div>
@@ -117,4 +116,4 @@ const BuyModal = () => {
   )
 }
 
-export default BuyModal
+export default SellModal
