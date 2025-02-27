@@ -1,5 +1,6 @@
 'use client'
 import Image from 'next/image'
+import Link from 'next/link'
 
 const Navbar = () => {
   
@@ -25,11 +26,11 @@ const Navbar = () => {
           >
             Sign up
           </button>
-          <button
-            className={`bg-[#FFD700] text-black rounded-[50px] font-semibold text-[13px] w-[74px] h-[30px] hover:bg-black hover:text-[#FFD700] transition-all duration-300 ease-in-out`}
+          <Link href={'/login'}
+            className={`bg-[#FFD700] text-black rounded-[50px] font-semibold text-[13px] w-[74px] h-[30px] hover:bg-black hover:text-[#FFD700] transition-all duration-300 ease-in-out flex items-center justify-center`}
           >
             Sign in
-          </button>
+          </Link>
         </div>
         <div className="lg:hidden block">
           <Image
