@@ -1,16 +1,21 @@
 'use client'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useAppDispatch } from '../store/hooks'
+import { openAbout } from '../store/modalSlice'
 
 const Navbar = () => {
-  
+  const dispatch = useAppDispatch()
+  const handleOpenAbout = () => {
+    dispatch(openAbout())
+  }
   return (
     <>
       <div className="h-[70px] flex fixed top-0 right-0 left-0 items-center justify-between px-10 lg:px-20 shadow-md z-10 bg-[#2E4053]">
         <div className={`text-white font-semibold text-xl`}>Extreme</div>
         <div className={`lg:flex hidden gap-6 font-semibold text-white`}>
-          <h1>Home</h1>
-          <h1>About</h1>
+          <Link href={'/'}>Home</Link>
+          <h1 onClick={() => handleOpenAbout()} className='cursor-pointer'>About</h1>
           <h1>Pricing</h1>
           <h1>Contact</h1>
         </div>

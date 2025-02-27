@@ -3,11 +3,13 @@ import { createSlice } from "@reduxjs/toolkit";
 interface modalState {
   buyModal: boolean
   sellModal: boolean
+  about: boolean
 }
 
 const initialState: modalState = {
   buyModal: false,
-  sellModal: false
+  sellModal: false,
+  about:false
 }
 
 const modalSlice = createSlice({
@@ -25,9 +27,15 @@ const modalSlice = createSlice({
     },
     closeSellModal: (state) => {
       state.sellModal = false
+    },
+    openAbout: (state) => {
+      state.about = true
+    },
+    closeAbout: (state) => {
+      state.about = false
     }
   }
 })
 
-export const {openBuyModal, closeBuyModal, openSellModal, closeSellModal} = modalSlice.actions
+export const {openBuyModal, closeBuyModal, openSellModal, closeSellModal, openAbout, closeAbout} = modalSlice.actions
 export default modalSlice.reducer
