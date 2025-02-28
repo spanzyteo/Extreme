@@ -13,3 +13,11 @@ input[type='number']::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
+#contact {
+  scroll-margin-top: 80px; /* Adjust this based on your navbar height */
+}

@@ -6,6 +6,7 @@ import { openAbout } from '../store/modalSlice'
 import { closeMenubar, toggleSwitch } from '../store/menubarSlice'
 import { FaXmark } from 'react-icons/fa6'
 import { motion } from 'framer-motion'
+import { useEffect } from 'react'
 
 const Navbar = () => {
   const menubarOpen = useAppSelector((state) => state.menubar.menubarOPen)
@@ -21,6 +22,13 @@ const Navbar = () => {
 
   const handleCloseMenubar = () => {
     dispatch(closeMenubar())
+  }
+
+  const handleScrollToContact = () => {
+    const contactSection = document.getElementById('contact')
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' })
+    }
   }
 
   const sidebarVariants = {
@@ -44,7 +52,9 @@ const Navbar = () => {
               About Us
             </h1>
             <h1>Pricing</h1>
-            <h1>Contact</h1>
+            <Link href="#contact" scroll={true}>
+              <h1 className="cursor-pointer">Contact</h1>
+            </Link>
           </div>
           <div className="lg:flex hidden gap-4">
             <Link
@@ -108,7 +118,12 @@ const Navbar = () => {
             Book Flight
           </h1>
           <div className="w-full h-[1px] border-t border-t-white"></div>
-          <h1 className="cursor-pointer hover:text-[#fab702] transition-all duration-300 ease mt-4">
+          <h1
+            onClick={() => {
+              handleScrollToContact(), handleCloseMenubar()
+            }}
+            className="cursor-pointer hover:text-[#fab702] transition-all duration-300 ease mt-4"
+          >
             Contact
           </h1>
           <div className="w-full h-[1px] border-t border-t-white"></div>
